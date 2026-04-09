@@ -21,6 +21,8 @@ Open `index.html` directly in a desktop browser for basic testing (UI, sound, le
 
 **Motion sensors require HTTPS** — the DeviceMotion API is blocked on plain `http://` and on `file://` on real phones. Use [GitHub Pages](https://pages.github.com/) (or any HTTPS host) for the full experience on a device.
 
+**Deploying updates:** when pushing significant changes, bump `CACHE_VERSION` in `sw.js` to force all clients to discard their cached version and fetch the new one.
+
 ---
 
 ## PWA / Add to Home Screen
@@ -53,7 +55,7 @@ ijerkit/
 ├── styles.css          — arcade dark-theme styles
 ├── app.js              — game logic, motion detection, audio, leaderboard
 ├── manifest.json       — PWA manifest
-├── sw.js               — cache-first service worker
+├── sw.js               — network-first for app files, cache-first for static assets
 ├── icon.svg            — vector icon (used by manifest + favicon)
 ├── icon-192.png        — PWA icon 192×192 (generate via generate-icons.html)
 ├── icon-512.png        — PWA icon 512×512 (generate via generate-icons.html)
