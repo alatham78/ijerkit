@@ -2,7 +2,7 @@
 
 // Bump CACHE_VERSION when deploying significant changes to force all clients
 // to discard the old cache and fetch fresh files.
-const CACHE_VERSION = 'v1';
+const CACHE_VERSION = 'v2';
 const CACHE_NAME    = `ijerkit-cache-${CACHE_VERSION}`;
 
 // These files change with each deploy — always try the network first.

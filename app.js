@@ -67,23 +67,29 @@ function playTone(freq, durationSec, type, vol, startDelaySec) {
   osc.stop(t + durationSec + 0.05);
 }
 
-// Short mid-tone beep for 3, 2, 1
+// Punchy 8-bit blip for 3, 2, 1
 function playCountdownBeep() {
-  playTone(440, 0.12, 'sine', 0.55);
+  playTone(440, 0.10, 'square', 0.4);   // A4 — square for that arcade crunch
 }
 
-// Two quick ascending tones — clearly different from countdown
+// Power-up ascending arpeggio: C5 → E5 → G5 → C6
 function playGoBeep() {
-  playTone(660, 0.12, 'sine', 0.55, 0);
-  playTone(880, 0.22, 'sine', 0.6,  0.09);
+  playTone(523,  0.07, 'square', 0.42, 0);     // C5
+  playTone(659,  0.07, 'square', 0.44, 0.08);  // E5
+  playTone(784,  0.07, 'square', 0.46, 0.16);  // G5
+  playTone(1047, 0.18, 'square', 0.5,  0.24);  // C6 — held at top
 }
 
-// Descending stab sequence — round over
+// Descending chromatic game-over (B4 → E4) — sawtooth stabs
 function playEndSound() {
-  playTone(660, 0.14, 'sawtooth', 0.38, 0);
-  playTone(550, 0.14, 'sawtooth', 0.38, 0.15);
-  playTone(440, 0.14, 'sawtooth', 0.38, 0.30);
-  playTone(330, 0.40, 'sawtooth', 0.33, 0.45);
+  playTone(494, 0.10, 'sawtooth', 0.40, 0);     // B4
+  playTone(466, 0.10, 'sawtooth', 0.40, 0.11);  // Bb4
+  playTone(440, 0.10, 'sawtooth', 0.39, 0.22);  // A4
+  playTone(415, 0.10, 'sawtooth', 0.38, 0.33);  // Ab4
+  playTone(392, 0.10, 'sawtooth', 0.37, 0.44);  // G4
+  playTone(370, 0.10, 'sawtooth', 0.36, 0.55);  // F#4
+  playTone(349, 0.10, 'sawtooth', 0.35, 0.66);  // F4
+  playTone(330, 0.40, 'sawtooth', 0.33, 0.77);  // E4 — held at bottom
 }
 
 // ============================================================
@@ -116,6 +122,8 @@ function handleMotion(event) {
   if (ay > THRESHOLD && (now - lastCountTime) > DEBOUNCE_MS) {
     score++;
     lastCountTime = now;
+
+    playTone(1047, 0.025, 'square', 0.22);  // C6 — snappy 8-bit score tick
 
     const el = document.getElementById('score-display');
     el.textContent = score;

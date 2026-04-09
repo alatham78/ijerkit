@@ -598,6 +598,166 @@ h2 {
 }
 
 /* ============================================================
+   1980s Arcade Enhancements
+   ============================================================ */
+
+/* Additional palette */
+:root {
+  --cyan:   #00e5ff;
+  --pink:   #ff1493;
+  --purple: #bf00ff;
+}
+
+/* CRT scanline overlay — applied to every screen like a monitor glass */
+.screen::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent        0px,
+    transparent        2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 3px
+  );
+  pointer-events: none;
+  z-index: 50;
+}
+
+/* Title — boosted multi-layer phosphor glow + subtle CRT flicker */
+h1.title {
+  text-shadow:
+    0 0 10px var(--orange),
+    0 0 20px var(--orange),
+    0 0 40px rgba(255, 69, 0, 0.7),
+    0 0 80px rgba(255, 69, 0, 0.3);
+  animation: title-flicker 6s step-end infinite;
+}
+
+@keyframes title-flicker {
+  0%, 88%, 91%, 95%, 100% { opacity: 1; }
+  89%                      { opacity: 0.75; }
+  93%                      { opacity: 0.9; }
+}
+
+/* Subtitle — neon cyan INSERT COIN blink */
+.subtitle {
+  color: var(--cyan);
+  text-shadow: 0 0 8px var(--cyan), 0 0 16px rgba(0, 229, 255, 0.3);
+  animation: blink-step 1.4s step-end infinite;
+}
+
+@keyframes blink-step {
+  0%, 49% { opacity: 1; }
+  50%, 99% { opacity: 0; }
+}
+
+/* Countdown number — intense multi-layer phosphor blast */
+.countdown-number {
+  text-shadow:
+    0 0 10px var(--yellow),
+    0 0 25px var(--yellow),
+    0 0 50px rgba(255, 215, 0, 0.7),
+    0 0 100px rgba(255, 215, 0, 0.3);
+}
+
+/* GO! — neon green eruption */
+.countdown-go {
+  text-shadow:
+    0 0 10px var(--green),
+    0 0 25px var(--green),
+    0 0 60px rgba(57, 255, 20, 0.7),
+    0 0 120px rgba(57, 255, 20, 0.3);
+}
+
+/* Timer bar — thicker with orange glow */
+.timer-bar-wrap {
+  height: 12px;
+}
+
+.timer-bar {
+  box-shadow: 0 0 8px var(--orange), 0 0 16px rgba(255, 69, 0, 0.4);
+}
+
+/* Game timer seconds — neon cyan readout */
+.game-timer {
+  color: var(--cyan);
+  text-shadow: 0 0 8px var(--cyan), 0 0 16px rgba(0, 229, 255, 0.4);
+}
+
+/* Score display — green phosphor arcade readout */
+.score-display {
+  color: var(--green);
+  text-shadow:
+    0 0 10px var(--green),
+    0 0 20px var(--green),
+    0 0 45px rgba(57, 255, 20, 0.5),
+    0 0 90px rgba(57, 255, 20, 0.2);
+}
+
+/* Score flash: white burst → back to green phosphor */
+@keyframes score-pop {
+  0%   { color: #fff; text-shadow: 0 0 30px #fff, 0 0 60px #fff; transform: scale(1.15); }
+  100% { color: var(--green); transform: scale(1); }
+}
+
+/* Result score — orange phosphor glow */
+.result-score {
+  text-shadow:
+    0 0 10px var(--orange),
+    0 0 20px var(--orange),
+    0 0 40px rgba(255, 69, 0, 0.5);
+}
+
+/* High-score banner — fast blink + pumped glow */
+.top-ten-msg {
+  text-shadow:
+    0 0 10px var(--green),
+    0 0 25px var(--green),
+    0 0 50px rgba(57, 255, 20, 0.5);
+  animation: blink-step 0.7s step-end infinite;
+}
+
+/* Leaderboard title — bordered panel line */
+#screen-leaderboard h2 {
+  border-bottom: 2px solid var(--yellow);
+  padding-bottom: 0.5rem;
+  width: 100%;
+  max-width: 340px;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+}
+
+/* Leaderboard scores — green phosphor readout */
+.lb-score {
+  color: var(--green);
+  text-shadow: 0 0 6px rgba(57, 255, 20, 0.6);
+}
+
+.lb-row.lb-first .lb-score {
+  color: var(--yellow);
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.6);
+}
+
+/* Leaderboard rows — thicker arcade cabinet border */
+.lb-row {
+  border-width: 2px;
+}
+
+.lb-row.lb-first {
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.12);
+}
+
+/* Primary button — stronger glow aura */
+.btn-primary {
+  box-shadow: 0 4px 0 #aa2d00, 0 0 15px rgba(255, 69, 0, 0.5), 0 0 30px rgba(255, 69, 0, 0.2);
+}
+
+/* Active duration picker — glow ring */
+.dur-btn.active {
+  box-shadow: 0 0 10px rgba(255, 69, 0, 0.35);
+}
+
+/* ============================================================
    Input lock — countdown and game phases
    ============================================================ */
 
