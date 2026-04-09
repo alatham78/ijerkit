@@ -4,8 +4,8 @@
 // Config
 // ============================================================
 
-const THRESHOLD   = 15;    // m/s² — minimum Y acceleration for a jerk count
-const DEBOUNCE_MS = 100;   // minimum ms between counts (~3 jerks/sec max)
+const THRESHOLD   = 8;     // m/s² — minimum Y acceleration for a jerk count
+const DEBOUNCE_MS = 100;   // minimum ms between counts (~10 jerks/sec max)
 const GRAVITY_α   = 0.8;   // low-pass filter coefficient for gravity estimation
 
 // ============================================================
