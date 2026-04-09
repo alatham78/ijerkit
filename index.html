@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#ff4500">
+  <meta name="description" content="The world's most important phone-shaking game.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="iJerkIt">
+
+  <title>iJerkIt</title>
+
+  <link rel="manifest" href="./manifest.json">
+  <link rel="icon" type="image/svg+xml" href="./icon.svg">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div id="app">
+
+    <!-- ============================================================
+         SCREEN: Menu
+         ============================================================ -->
+    <div class="screen active" id="screen-menu">
+      <h1 class="title">iJerkIt</h1>
+      <p class="subtitle">Shake Your Phone!</p>
+
+      <div class="duration-section">
+        <p class="duration-label">Round Length</p>
+        <div class="duration-buttons">
+          <button class="dur-btn active" data-duration="10">10s</button>
+          <button class="dur-btn"        data-duration="20">20s</button>
+          <button class="dur-btn"        data-duration="30">30s</button>
+        </div>
+      </div>
+
+      <button class="btn-primary" id="start-btn">START!</button>
+
+      <div class="bottom-nav">
+        <button class="btn-link" id="leaderboard-btn">Leaderboard</button>
+        <button class="btn-link btn-settings" id="settings-btn" aria-label="Settings">&#9881;</button>
+      </div>
+    </div>
+
+    <!-- ============================================================
+         SCREEN: Countdown
+         ============================================================ -->
+    <div class="screen" id="screen-countdown">
+      <div class="countdown-number" id="countdown-number">3</div>
+    </div>
+
+    <!-- ============================================================
+         SCREEN: Game (active round)
+         ============================================================ -->
+    <div class="screen" id="screen-game">
+      <!-- Full-width bar at top that shrinks to zero as time runs out -->
+      <div class="timer-bar-wrap">
+        <div class="timer-bar" id="timer-bar"></div>
+      </div>
+
+      <div class="game-timer" id="game-timer">10</div>
+      <div class="score-label">Jerks</div>
+      <div class="score-display" id="score-display">0</div>
+    </div>
+
+    <!-- ============================================================
+         SCREEN: Result
+         ============================================================ -->
+    <div class="screen" id="screen-result">
+      <h2>Round Over!</h2>
+
+      <div class="result-score-block">
+        <span class="result-score" id="result-score">0</span>
+        <span class="result-label">
+          jerks in <span id="result-duration">10</span>s
+        </span>
+      </div>
+
+      <!-- Shown only when score makes the top-10 -->
+      <div id="initials-section">
+        <p class="top-ten-msg">&#9733; New High Score! &#9733;</p>
+        <p class="initials-prompt">Enter your initials</p>
+        <div class="initials-inputs">
+          <input class="initial-input" type="text" maxlength="1"
+                 autocomplete="off" autocorrect="off" spellcheck="false"
+                 inputmode="text" aria-label="Initial 1">
+          <input class="initial-input" type="text" maxlength="1"
+                 autocomplete="off" autocorrect="off" spellcheck="false"
+                 inputmode="text" aria-label="Initial 2">
+          <input class="initial-input" type="text" maxlength="1"
+                 autocomplete="off" autocorrect="off" spellcheck="false"
+                 inputmode="text" aria-label="Initial 3">
+        </div>
+        <button class="btn-primary" id="submit-initials-btn">Submit</button>
+      </div>
+
+      <!-- Shown when score doesn't make the top-10 -->
+      <div id="no-top-ten">
+        <p>Not top 10 yet &mdash; keep jerking!</p>
+      </div>
+
+      <button class="btn-secondary" id="result-leaderboard-btn">See Scores</button>
+      <button class="btn-link"      id="play-again-btn">Play Again</button>
+    </div>
+
+    <!-- ============================================================
+         SCREEN: Leaderboard
+         ============================================================ -->
+    <div class="screen" id="screen-leaderboard">
+      <h2>Leaderboard</h2>
+
+      <div class="tabs">
+        <button class="tab active" data-tab="10">10s</button>
+        <button class="tab"        data-tab="20">20s</button>
+        <button class="tab"        data-tab="30">30s</button>
+      </div>
+
+      <div class="leaderboard-list" id="leaderboard-list"></div>
+
+      <button class="btn-link" id="lb-back-btn">Back</button>
+    </div>
+
+    <!-- ============================================================
+         SCREEN: Settings
+         ============================================================ -->
+    <div class="screen" id="screen-settings">
+      <h2>Settings</h2>
+
+      <div class="settings-content">
+        <button class="btn-danger" id="reset-scores-btn">Reset All Scores</button>
+        <p class="settings-note">Clears all leaderboard data from this device.</p>
+      </div>
+
+      <button class="btn-link" id="settings-back-btn">Back</button>
+    </div>
+
+    <!-- ============================================================
+         SCREEN: Motion Permission Denied
+         ============================================================ -->
+    <div class="screen" id="screen-denied">
+      <div class="denied-icon">&#128683;</div>
+      <h2>Motion Access Needed</h2>
+      <p class="denied-text">
+        iJerkIt uses your phone&rsquo;s motion sensors to count jerks.
+        Please reload the page and tap <strong>Allow</strong> when asked for
+        motion access &mdash; then tap Start again.
+      </p>
+      <button class="btn-primary" id="denied-back-btn">Got It</button>
+    </div>
+
+  </div><!-- /#app -->
+
+  <!-- Toast notification -->
+  <div id="toast"></div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
