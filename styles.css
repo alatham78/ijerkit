@@ -596,3 +596,19 @@ h2 {
   background: #333;
   border-radius: 2px;
 }
+
+/* ============================================================
+   Input lock — countdown and game phases
+   ============================================================ */
+
+/* Block all taps/clicks on the app during countdown and game */
+.input-locked #app {
+  pointer-events: none;
+}
+
+/* Tell the browser compositor to skip scroll/zoom gesture recognition
+   on these two screens (faster than preventDefault in JS) */
+#screen-countdown,
+#screen-game {
+  touch-action: none;
+}

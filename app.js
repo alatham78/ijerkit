@@ -26,9 +26,17 @@ let currentLbTab        = 10;
 // Screen Navigation
 // ============================================================
 
+let inputLocked = false;
+
+function setInputLocked(locked) {
+  inputLocked = locked;
+  document.body.classList.toggle('input-locked', locked);
+}
+
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('screen-' + id).classList.add('active');
+  setInputLocked(id === 'countdown' || id === 'game');
 }
 
 // ============================================================
@@ -441,6 +449,12 @@ function init() {
 
   // Initials keyboard handling
   setupInitialsInputs();
+
+  // Prevent scroll/zoom during countdown and game — belt-and-suspenders alongside
+  // touch-action:none in CSS (needed for older iOS where touch-action may be imperfect)
+  document.addEventListener('touchmove', e => {
+    if (inputLocked) e.preventDefault();
+  }, { passive: false });
 
   // Register service worker for PWA offline support
   if ('serviceWorker' in navigator) {
