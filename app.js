@@ -394,6 +394,16 @@ function init() {
     showScreen('leaderboard');
   });
 
+  // Menu → Instructions
+  document.getElementById('how-to-play-btn').addEventListener('click', () => {
+    showScreen('instructions');
+  });
+
+  // Instructions → Menu
+  document.getElementById('instructions-back-btn').addEventListener('click', () => {
+    showScreen('menu');
+  });
+
   // Menu → Settings
   document.getElementById('settings-btn').addEventListener('click', () => {
     showScreen('settings');
