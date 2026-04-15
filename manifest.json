@@ -6,7 +6,7 @@
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#0d0d0d",
-  "theme_color": "#ff4500",
+  "theme_color": "#ff00cc",
   "icons": [
     {
       "src": "icon.svg",

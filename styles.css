@@ -11,7 +11,7 @@
 :root {
   --bg: #0d0d0d;
   --surface: #1a1a1a;
-  --orange: #ff4500;
+  --orange: #ff00cc;
   --yellow: #ffd700;
   --green: #39ff14;
   --text: #f0f0f0;
@@ -80,7 +80,7 @@ h1.title {
   font-size: clamp(3rem, 14vw, 5rem);
   font-weight: 900;
   color: var(--orange);
-  text-shadow: 0 0 20px rgba(255, 69, 0, 0.6), 0 0 40px rgba(255, 69, 0, 0.3);
+  text-shadow: 0 0 20px rgba(255, 0, 204, 0.6), 0 0 40px rgba(255, 0, 204, 0.3);
   letter-spacing: 4px;
   line-height: 1;
 }
@@ -117,12 +117,12 @@ h2 {
   cursor: pointer;
   border-radius: 6px;
   transition: background 0.1s, transform 0.1s, box-shadow 0.1s;
-  box-shadow: 0 4px 0 #aa2d00, 0 0 20px rgba(255, 69, 0, 0.4);
+  box-shadow: 0 4px 0 #aa0088, 0 0 20px rgba(255, 0, 204, 0.4);
 }
 
 .btn-primary:active {
   transform: translateY(3px);
-  box-shadow: 0 1px 0 #aa2d00;
+  box-shadow: 0 1px 0 #aa0088;
 }
 
 .btn-secondary {
@@ -231,7 +231,7 @@ h2 {
 .dur-btn.active {
   border-color: var(--orange);
   color: var(--orange);
-  background: rgba(255, 69, 0, 0.12);
+  background: rgba(255, 0, 204, 0.12);
 }
 
 .dur-btn:active {
@@ -412,7 +412,7 @@ h2 {
 
 .initial-input:focus {
   border-color: var(--orange);
-  box-shadow: 0 0 12px rgba(255, 69, 0, 0.4);
+  box-shadow: 0 0 12px rgba(255, 0, 204, 0.4);
 }
 
 #no-top-ten {
@@ -452,7 +452,7 @@ h2 {
 .tab.active {
   border-color: var(--orange);
   color: var(--orange);
-  background: rgba(255, 69, 0, 0.1);
+  background: rgba(255, 0, 204, 0.1);
 }
 
 .leaderboard-list {
@@ -629,8 +629,8 @@ h1.title {
   text-shadow:
     0 0 10px var(--orange),
     0 0 20px var(--orange),
-    0 0 40px rgba(255, 69, 0, 0.7),
-    0 0 80px rgba(255, 69, 0, 0.3);
+    0 0 40px rgba(255, 0, 204, 0.7),
+    0 0 80px rgba(255, 0, 204, 0.3);
   animation: title-flicker 6s step-end infinite;
 }
 
@@ -676,7 +676,7 @@ h1.title {
 }
 
 .timer-bar {
-  box-shadow: 0 0 8px var(--orange), 0 0 16px rgba(255, 69, 0, 0.4);
+  box-shadow: 0 0 8px var(--orange), 0 0 16px rgba(255, 0, 204, 0.4);
 }
 
 /* Game timer seconds — neon cyan readout */
@@ -706,7 +706,7 @@ h1.title {
   text-shadow:
     0 0 10px var(--orange),
     0 0 20px var(--orange),
-    0 0 40px rgba(255, 69, 0, 0.5);
+    0 0 40px rgba(255, 0, 204, 0.5);
 }
 
 /* High-score banner — fast blink + pumped glow */
@@ -749,12 +749,12 @@ h1.title {
 
 /* Primary button — stronger glow aura */
 .btn-primary {
-  box-shadow: 0 4px 0 #aa2d00, 0 0 15px rgba(255, 69, 0, 0.5), 0 0 30px rgba(255, 69, 0, 0.2);
+  box-shadow: 0 4px 0 #aa0088, 0 0 15px rgba(255, 0, 204, 0.5), 0 0 30px rgba(255, 0, 204, 0.2);
 }
 
 /* Active duration picker — glow ring */
 .dur-btn.active {
-  box-shadow: 0 0 10px rgba(255, 69, 0, 0.35);
+  box-shadow: 0 0 10px rgba(255, 0, 204, 0.35);
 }
 
 /* ============================================================
